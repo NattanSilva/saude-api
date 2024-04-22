@@ -9,5 +9,5 @@ from .serializers import ProfessionalSerializer
 class ProfessionalViewSet(ModelViewSet):
     queryset = Professional.objects.all()
     serializer_class = ProfessionalSerializer
-    # permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
-    # authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
+    authentication_classes = [JWTAuthentication]
