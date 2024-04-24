@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from ..models import Professional
+from ..models import Professional, Cuidador
 
 
 class ProfessionalSerializer(ModelSerializer):
@@ -13,3 +13,11 @@ class ProfessionalSerializer(ModelSerializer):
 
     def create(self, validated_data: dict):
         return Professional.objects.create_user(**validated_data)
+
+
+class CuidadorSerializer(ModelSerializer):
+    class Meta:
+        model = Cuidador
+        fields = "__all__"
+        read_only_fields = ["id"]
+        extra_kwargs = {"id": {"read_only": True}}

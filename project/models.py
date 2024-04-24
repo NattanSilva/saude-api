@@ -13,3 +13,12 @@ class Professional(AbstractUser):
     tipoProfissional = models.CharField(max_length=150)
     conselho = models.CharField(max_length=150)
     nomeUSF = models.CharField(max_length=150)
+
+
+class Cuidador(models.Model):
+    nome = models.CharField(max_length=150)
+    grauDeParentesco = models.CharField(max_length=150)
+    email = models.CharField(max_length=150)
+    telefone = models.CharField(max_length=11, unique=True)
+
+    enfermeiro = models.ManyToManyField(Professional, related_name="enfermeiro")
